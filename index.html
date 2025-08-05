@@ -1,13 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Material You Clock</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8" />
+    <title>Material You New Tab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="/styles/weather.css">
 </head>
+
 <body>
-    
-    <script src="index.js"></script>
+    <main class="layout">
+        <!-- Left Panel -->
+        <section class="panel panel--left">
+            <div class="welcome">
+                <label for="username">Welcome</label>
+                <input type="text" id="username" placeholder="Enter your name" />
+            </div>
+
+            <section class="todo">
+                <h2>To-Do List</h2>
+                <ul class="todo__list"></ul>
+            </section>
+
+            <div class="clock">
+                <h2>Current Time</h2>
+                <p class="clock__time">--:--:--</p>
+            </div>
+
+            <section class="bookmarks">
+                <h2>Bookmarks</h2>
+                <div class="bookmark-list">
+                    <a href="#" class="bookmark">
+                        <img src="https://www.example1.com/favicon.ico" alt="Example1" />
+                        <span>Example1</span>
+                    </a>
+                    <!-- Add more bookmarks -->
+                </div>
+            </section>
+        </section>
+
+        <!-- Right Panel -->
+        <section class="panel panel--right">
+            <section class="weather">
+                <h2>Weather</h2>
+                <input type="text" id="cityInput" placeholder="Enter city name" />
+                <button id="getWeatherBtn">Get Weather</button>
+                <div class="weather__info">
+                    <p id="cityName">--</p>
+                    <p id="temperature">-- °C</p>
+                    <p id="description">--</p>
+
+                    <!-- Enhanced humidity bar with better structure -->
+                    <div class="humidity">
+                        <h3>
+                            Humidity
+                            <span id="humidityValue">--%</span>
+                        </h3>
+                        <div class="humidity__container">
+                            <div class="humidity__bar"></div>
+                        </div>
+                    </div>
+
+                    <img id="weatherIcon" src="" alt="" style="display: none;" />
+                </div>
+            </section>
+
+
+            <div class="search">
+                <input type="text" class="search__input" placeholder="Search..." />
+                <div class="search__engines">
+                    <button class="engine" data-engine="google">
+                        <img src="https://www.google.com/favicon.ico" alt="Google" />
+                        <span>Google</span>
+                    </button>
+                    <button class="engine" data-engine="bing">
+                        <img src="https://www.bing.com/favicon.ico" alt="Bing" />
+                        <span>Bing</span>
+                    </button>
+                    <button class="engine" data-engine="duckduckgo">
+                        <img src="https://duckduckgo.com/favicon.ico" alt="DuckDuckGo" />
+                        <span>DuckDuckGo</span>
+                    </button>
+                </div>
+            </div>
+
+            <section class="favorites">
+                <h2>Favorite Sites</h2>
+                <div class="fav-list">
+                    <a href="https://github.com" class="fav-site">
+                        <img src="https://github.com/favicon.ico" alt="GitHub" />
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://stackoverflow.com" class="fav-site">
+                        <img src="https://stackoverflow.com/favicon.ico" alt="Stack Overflow" />
+                        <span>Stack Overflow</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="workspaces">
+                <h2>Workspaces</h2>
+                <!-- Dynamic workspace buttons -->
+            </section>
+        </section>
+    </main>
+
+    <!-- Bottom Panel -->
+    <footer class="panel panel--bottom">
+        <section class="ai-tools">
+            <h2>AI Tools</h2>
+            <a href="https://openai.com" class="ai-tool">
+                <img src="https://openai.com/favicon.ico" alt="OpenAI" />
+                <span>OpenAI</span>
+            </a>
+        </section>
+    </footer>
+
+    <script src="=index.js"></script>
+    <script src="modules/weather.js"></script>
 </body>
+
 </html>

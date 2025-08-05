@@ -1,0 +1,109 @@
+/* Humidity Bar Styles */
+.humidity {
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.humidity h3 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.humidity__container {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.humidity__bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 4px;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Color coding for different humidity levels */
+.humidity__bar--low {
+    background: linear-gradient(90deg, #ffd89b 0%, #19547b 100%);
+    box-shadow: 0 0 10px rgba(255, 216, 155, 0.5);
+}
+
+.humidity__bar--moderate {
+    background: linear-gradient(90deg, #a8edea 0%, #fed6e3 100%);
+    box-shadow: 0 0 10px rgba(168, 237, 234, 0.5);
+}
+
+.humidity__bar--high {
+    background: linear-gradient(90deg, #74b9ff 0%, #0984e3 100%);
+    box-shadow: 0 0 10px rgba(116, 185, 255, 0.5);
+}
+
+.humidity__bar--very-high {
+    background: linear-gradient(90deg, #fd79a8 0%, #e84393 100%);
+    box-shadow: 0 0 10px rgba(253, 121, 168, 0.5);
+}
+
+/* Add a subtle animation effect */
+.humidity__bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: shimmer 2s 10s;
+    animation-delay: 0.5s;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .humidity {
+        margin: 10px 0;
+        padding: 8px;
+    }
+    
+    .humidity h3 {
+        font-size: 13px;
+    }
+    
+    .humidity__container {
+        height: 6px;
+    }
+}
+
+/* Material Design inspired hover effect */
+.humidity:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+    transition: all 0.3s ease;
+}
