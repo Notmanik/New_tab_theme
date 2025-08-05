@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "new_tab_extension",
+  "version": "1.0",
+  "description": "This is my personal new tab extension.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "permissions": [],
+  "host_permissions": ["https://www.google.com/"],
+
+  "action": {
+    "default_title": "My Tab"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "manik-newtab@example.com"
+    }
+  }
+}
