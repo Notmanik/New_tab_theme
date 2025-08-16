@@ -2,84 +2,119 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Material You New Tab</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="/styles/weather.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles/clock.css">
 </head>
 
 <body>
-    <main class="layout">
+    <button class="collapse-btn" id="collapseBtn">
+        <span class="material-symbols-rounded">chevron_left</span>
+    </button>
+
+    <main class="layout" id="mainLayout">
         <!-- Left Panel -->
         <section class="panel panel--left">
             <div class="welcome">
                 <label for="username">Welcome</label>
-                <input type="text" id="username" placeholder="Enter your name" />
+                <input type="text" id="username" placeholder="Enter your name" value="Alex Johnson">
             </div>
 
             <section class="todo">
                 <h2>To-Do List</h2>
-                <ul class="todo__list"></ul>
+                <ul class="todo__list">
+                    <li>
+                        <input type="checkbox" id="task1" checked>
+                        <label for="task1">Complete project proposal</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task2">
+                        <label for="task2">Review design mockups</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task3">
+                        <label for="task3">Schedule team meeting</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task4">
+                        <label for="task4">Update documentation</label>
+                    </li>
+                </ul>
             </section>
 
             <div class="clock">
-                <h2>Current Time</h2>
-                <p class="clock__time">--:--:--</p>
-            </div>
-
-            <section class="bookmarks">
-                <h2>Bookmarks</h2>
-                <div class="bookmark-list">
-                    <a href="#" class="bookmark">
-                        <img src="https://www.example1.com/favicon.ico" alt="Example1" />
-                        <span>Example1</span>
-                    </a>
-                    <!-- Add more bookmarks -->
+                <div>
+                    <div class="info date"></div>
+                    <div class="info day"></div>
                 </div>
-            </section>
+                <div class="dot"></div>
+                <div>
+                    <div class="hour-hand"></div>
+                    <div class="minute-hand"></div>
+                    <div class="second-hand"></div>
+                </div>
+                <div>
+                    <span class="h3">3</span>
+                    <span class="h6">6</span>
+                    <span class="h9">9</span>
+                    <span class="h12">12</span>
+                </div>
+                <div class="diallines"></div>
+            </div>
         </section>
 
         <!-- Right Panel -->
         <section class="panel panel--right">
             <section class="weather">
                 <h2>Weather</h2>
-                <input type="text" id="cityInput" placeholder="Enter city name" />
+                <input type="text" id="cityInput" placeholder="Enter city name" value="New York">
                 <button id="getWeatherBtn">Get Weather</button>
+
                 <div class="weather__info">
+                    <p>City:</p>
                     <p id="cityName">--</p>
+
+                    <p>Temperature:</p>
                     <p id="temperature">-- °C</p>
+
+                    <p>Conditions:</p>
                     <p id="description">--</p>
 
-                    <!-- Enhanced humidity bar with better structure -->
+                    <!-- Weather icon placeholder -->
+                    <p>Icon:</p>
+                    <img id="weatherIcon" class="weather-icon" src="" alt="" style="display:none;">
+
+                    <!-- Humidity bar -->
                     <div class="humidity">
                         <h3>
                             Humidity
                             <span id="humidityValue">--%</span>
                         </h3>
                         <div class="humidity__container">
-                            <div class="humidity__bar"></div>
+                            <div class="humidity__bar" id="humidityBar"></div>
                         </div>
                     </div>
-
-                    <img id="weatherIcon" src="" alt="" style="display: none;" />
                 </div>
             </section>
 
 
             <div class="search">
-                <input type="text" class="search__input" placeholder="Search..." />
+                <input type="text" class="search__input" placeholder="Search...">
                 <div class="search__engines">
                     <button class="engine" data-engine="google">
-                        <img src="https://www.google.com/favicon.ico" alt="Google" />
+                        <img src="https://www.google.com/favicon.ico" alt="Google">
                         <span>Google</span>
                     </button>
                     <button class="engine" data-engine="bing">
-                        <img src="https://www.bing.com/favicon.ico" alt="Bing" />
+                        <img src="https://www.bing.com/favicon.ico" alt="Bing">
                         <span>Bing</span>
                     </button>
                     <button class="engine" data-engine="duckduckgo">
-                        <img src="https://duckduckgo.com/favicon.ico" alt="DuckDuckGo" />
+                        <img src="https://duckduckgo.com/favicon.ico" alt="DuckDuckGo">
                         <span>DuckDuckGo</span>
                     </button>
                 </div>
@@ -89,19 +124,45 @@
                 <h2>Favorite Sites</h2>
                 <div class="fav-list">
                     <a href="https://github.com" class="fav-site">
-                        <img src="https://github.com/favicon.ico" alt="GitHub" />
+                        <img src="https://github.com/favicon.ico" alt="GitHub">
                         <span>GitHub</span>
                     </a>
                     <a href="https://stackoverflow.com" class="fav-site">
-                        <img src="https://stackoverflow.com/favicon.ico" alt="Stack Overflow" />
+                        <img src="https://stackoverflow.com/favicon.ico" alt="Stack Overflow">
                         <span>Stack Overflow</span>
+                    </a>
+                    <a href="https://youtube.com" class="fav-site">
+                        <img src="https://youtube.com/favicon.ico" alt="YouTube">
+                        <span>YouTube</span>
+                    </a>
+                    <a href="https://reddit.com" class="fav-site">
+                        <img src="https://reddit.com/favicon.ico" alt="Reddit">
+                        <span>Reddit</span>
+                    </a>
+                    <a href="https://gmail.com" class="fav-site">
+                        <img src="https://gmail.com/favicon.ico" alt="Gmail">
+                        <span>Gmail</span>
+                    </a>
+                    <a href="https://drive.google.com" class="fav-site">
+                        <img src="https://drive.google.com/favicon.ico" alt="Google Drive">
+                        <span>Drive</span>
                     </a>
                 </div>
             </section>
 
             <section class="workspaces">
                 <h2>Workspaces</h2>
-                <!-- Dynamic workspace buttons -->
+                <div class="search__engines">
+                    <button class="engine">
+                        <span>Development</span>
+                    </button>
+                    <button class="engine">
+                        <span>Design</span>
+                    </button>
+                    <button class="engine">
+                        <span>Research</span>
+                    </button>
+                </div>
             </section>
         </section>
     </main>
@@ -110,15 +171,93 @@
     <footer class="panel panel--bottom">
         <section class="ai-tools">
             <h2>AI Tools</h2>
-            <a href="https://openai.com" class="ai-tool">
-                <img src="https://openai.com/favicon.ico" alt="OpenAI" />
-                <span>OpenAI</span>
-            </a>
+            <div class="ai-tools">
+                <a href="https://openai.com" class="ai-tool">
+                    <img src="https://openai.com/favicon.ico" alt="OpenAI">
+                    <span>OpenAI</span>
+                </a>
+                <a href="https://claude.ai" class="ai-tool">
+                    <img src="https://claude.ai/favicon.ico" alt="Claude">
+                    <span>Claude</span>
+                </a>
+                <a href="https://gemini.google.com" class="ai-tool">
+                    <img src="https://gemini.google.com/favicon.ico" alt="Gemini">
+                    <span>Gemini</span>
+                </a>
+            </div>
         </section>
+        <div class="clock__time" id="dateDisplay"></div>
     </footer>
 
-    <script src="=index.js"></script>
-    <script src="modules/weather.js"></script>
-</body>
+    <script>
+        // Collapse/Expand functionality
+        document.getElementById('collapseBtn').addEventListener('click', function () {
+            document.getElementById('mainLayout').classList.toggle('collapsed');
+        });
 
+        // Digital clock
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            const date = now.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            document.getElementById('clockTime').textContent = time;
+            document.getElementById('dateDisplay').textContent = date;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // To-do list functionality
+        document.querySelectorAll('.todo__list input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                const label = this.nextElementSibling;
+                if (this.checked) {
+                    label.style.textDecoration = 'line-through';
+                    label.style.color = '#95a5a6';
+                } else {
+                    label.style.textDecoration = 'none';
+                    label.style.color = '#2c3e50';
+                }
+            });
+        });
+
+        // Search engine functionality
+        document.querySelectorAll('.engine[data-engine]').forEach(button => {
+            button.addEventListener('click', function () {
+                const searchInput = document.querySelector('.search__input');
+                const engine = this.getAttribute('data-engine');
+                let searchUrl;
+
+                switch (engine) {
+                    case 'bing':
+                        searchUrl = 'https://www.bing.com/search?q=';
+                        break;
+                    case 'duckduckgo':
+                        searchUrl = 'https://duckduckgo.com/?q=';
+                        break;
+                    default:
+                        searchUrl = 'https://www.google.com/search?q=';
+                }
+
+                if (searchInput.value.trim() !== '') {
+                    window.open(searchUrl + encodeURIComponent(searchInput.value), '_blank');
+                }
+            });
+        });
+        // Set initial checkbox states
+        document.querySelectorAll('#task1').forEach(checkbox => {
+            checkbox.dispatchEvent(new Event('change'));
+        });
+    </script>
+    <script src="modules/clock.js"></script>
+    <script src="modules/weather.js"></script>
+    <script src="modules/search.js"></script>
+    <script src="modules/clock.js"></script>
+</body>
 </html>
